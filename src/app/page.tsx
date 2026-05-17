@@ -8,8 +8,8 @@ export default function Home() {
       
       <main className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col gap-24 md:gap-40">
         <Hero />
+        <RoleCoverage />
         <SelectedWork />
-        <Services />
         <Proof />
         <Contact />
       </main>
@@ -28,8 +28,8 @@ function Navigation() {
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-brand-muted">
+          <Link href="#roles" className="hover:text-brand-text transition-colors">Roles</Link>
           <Link href="#work" className="hover:text-brand-text transition-colors">Work</Link>
-          <Link href="#services" className="hover:text-brand-text transition-colors">Services</Link>
           <Link href="#proof" className="hover:text-brand-text transition-colors">Proof</Link>
           <Link href="#contact" className="hover:text-brand-text transition-colors">Contact</Link>
         </div>
@@ -197,60 +197,69 @@ function SelectedWork() {
   );
 }
 
-function Services() {
-  const services = [
+function RoleCoverage() {
+  const roles = [
     {
-      title: "Community updates",
-      description: "Clear announcements, project updates, and basic member communication.",
-      icon: (
-        <svg className="w-5 h-5 text-brand-accent1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      )
+      num: "01",
+      title: "Community Manager",
+      description: "Keeps members informed, supports announcements, and helps the community stay active.",
+      accentClass: "bg-white/10 group-hover:bg-brand-accent1"
     },
     {
-      title: "Member engagement",
-      description: "Helping conversations stay active, respectful, and useful.",
-      icon: (
-        <svg className="w-5 h-5 text-brand-accent2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-        </svg>
-      )
+      num: "02",
+      title: "Community Moderator",
+      description: "Helps maintain order, answer basic questions, and keep conversations useful.",
+      accentClass: "bg-white/10 group-hover:bg-brand-accent2"
     },
     {
-      title: "Project contribution",
-      description: "Supporting day-to-day project tasks, coordination, and public-facing activity.",
-      icon: (
-        <svg className="w-5 h-5 text-brand-accent3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-        </svg>
-      )
+      num: "03",
+      title: "Content Writer",
+      description: "Writes simple project updates, community posts, and public-facing communication.",
+      accentClass: "bg-white/10 group-hover:bg-brand-accent3"
     },
     {
-      title: "Web3 communication",
-      description: "Keeping project messaging clear across X, Telegram, Discord, and community channels.",
-      icon: (
-        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-        </svg>
-      )
+      num: "04",
+      title: "Project Contributor",
+      description: "Supports day-to-day project tasks, coordination, and community-facing activity.",
+      accentClass: "bg-white/10 group-hover:bg-brand-accent1"
+    },
+    {
+      num: "05",
+      title: "Growth Strategy",
+      description: "Helps with visibility ideas, community momentum, and basic growth direction.",
+      accentClass: "bg-white/10 group-hover:bg-brand-accent2"
     }
   ];
 
   return (
-    <section id="services" className="scroll-mt-32 space-y-12">
+    <section id="roles" className="scroll-mt-32 space-y-12">
       <div className="space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">What Lumina helps with</h2>
+        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-white">Role Coverage</h2>
+        <p className="text-lg text-brand-muted max-w-2xl">
+          The areas Lumina supports across early Web3 communities and project teams.
+        </p>
       </div>
-      
-      <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
-        {services.map((service, idx) => (
-          <div key={idx} className="bg-brand-card p-6 md:p-8 rounded-3xl border border-white/5 border-t-brand-accent2/20 hover:border-white/10 transition-colors">
-            <div className="w-10 h-10 rounded-lg border border-white/10 bg-brand-bg flex items-center justify-center mb-6">
-              {service.icon}
+
+      <div className="flex flex-col border-t border-white/10">
+        {roles.map((role, idx) => (
+          <div 
+            key={idx} 
+            className="group relative flex flex-col md:flex-row md:items-start justify-between py-8 border-b border-white/10 px-6 hover:bg-white/[0.02] transition-all duration-200"
+          >
+            {/* Subtle left accent line for each row that highlights on hover */}
+            <div className={`absolute left-0 top-0 bottom-0 w-[2px] transition-all duration-300 ${role.accentClass}`} />
+            
+            <div className="flex items-center gap-4 md:w-1/3 mb-4 md:mb-0 shrink-0">
+              <span className="font-mono text-xs text-brand-muted/70">{role.num}</span>
+              <h3 className="text-lg md:text-xl font-bold text-white tracking-tight group-hover:text-white transition-colors">
+                {role.title}
+              </h3>
             </div>
-            <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-            <p className="text-brand-muted leading-relaxed">{service.description}</p>
+            <div className="flex-1 md:pl-12">
+              <p className="text-brand-muted text-sm md:text-base leading-relaxed max-w-2xl">
+                {role.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
